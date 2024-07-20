@@ -32,6 +32,12 @@
             <artifactId>spring-kafka</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>3.1.3</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.account</groupId>
             <artifactId>lib-account-core-cqrs</artifactId>
             <version>1.0.0</version>

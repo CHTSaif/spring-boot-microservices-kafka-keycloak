@@ -87,6 +87,8 @@ services:
     depends_on:
       - kafka
       - mongo
+      - configserver
+      - discoveryserver
 
   account-qry:
     image: bank/account-qry-service-api
@@ -99,6 +101,8 @@ services:
     depends_on:
       - kafka
       - account-mysql
+      - configserver
+      - discoveryserver
   keycloak:
     image: quay.io/keycloak/keycloak:18.0.2
     environment:
@@ -143,7 +147,7 @@ services:
     depends_on:
       - discoveryserver
 
-   user-service:
+  user-service:
     image: bank/user-service
     container_name: user-service
     build:
@@ -152,7 +156,10 @@ services:
     ports:
       - "5002:5002"
     depends_on:
+      - configserver
       - discoveryserver
+      - account-mysql
+      - keycloak
 
 
 volumes:

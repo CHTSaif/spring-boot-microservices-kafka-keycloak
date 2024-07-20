@@ -99,6 +99,61 @@ services:
     depends_on:
       - kafka
       - account-mysql
+  keycloak:
+    image: quay.io/keycloak/keycloak:18.0.2
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    ports:
+      - "8181:8080"
+    command:
+      - start-dev
+
+    
+  configserver:
+    image: bank/configserver
+    container_name: configserver
+    build:
+      context: ./configserver
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    depends_on:
+      - mongo
+
+  discoveryserver:
+    image: bank/discoveryserver
+    container_name: discoveryserver
+    build:
+      context: ./discoveryserver
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    depends_on:
+      - configserver
+
+  api-gateway:
+    image: bank/api-gateway
+    container_name: api-gateway
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    depends_on:
+      - discoveryserver
+
+   user-service:
+    image: bank/user-service
+    container_name: user-service
+    build:
+      context: ./user-service
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    depends_on:
+      - discoveryserver
+
 
 volumes:
   zookeeper_data:

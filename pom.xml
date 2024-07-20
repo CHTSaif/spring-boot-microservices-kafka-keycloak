@@ -24,10 +24,14 @@
     </properties>
 
     <modules>
+        <module>configserver</module>
+        <module>discoveryserver</module>
+        <module>api-gateway</module>
         <module>lib-account-core-cqrs</module>
         <module>lib-account-common</module>
         <module>account-cmd-service</module>
         <module>account-qry-service</module>
+        <module>user-service</module>
     </modules>
 
     <dependencyManagement>

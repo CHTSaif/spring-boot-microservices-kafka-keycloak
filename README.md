@@ -1,5 +1,5 @@
 
-```markdown
+
 # Spring Boot Microservices with Kafka and Keycloak
 
 This project demonstrates a microservices architecture using Spring Boot, integrating Apache Kafka for messaging and Keycloak for authentication and authorization.

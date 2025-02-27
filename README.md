@@ -100,6 +100,9 @@ Each microservice is designed to handle specific business functionalities:
 
 Contributions are welcome! Please fork the repository and submit a pull request for any enhancements, bug fixes, or documentation improvements.
 
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 ```
 
-This `README.md` provides a comprehensive guide to setting up and understanding the project. Adjust the content as necessary to fit the specific configurations and features of your project.  
+This `README.md` provides a comprehensive guide to setting up and understanding the project. Adjust the content as necessary to fit the specific configurations and features of your project. 
